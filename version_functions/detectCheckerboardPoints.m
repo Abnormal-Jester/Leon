@@ -184,7 +184,6 @@ end
 
 % Parse the Name-Value pairs
 parser = inputParser;
-parser.addParameter('ShowProgressBar', false, @checkShowProgressBar);
 parser.parse(args{:}); 
 showProgressBar = parser.Results.ShowProgressBar;
 
