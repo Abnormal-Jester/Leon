@@ -22,6 +22,6 @@ else
     
     % Find location of the peaks
     idx = find(bw);
-    loc = zeros([length(idx) 2], 'like', metric );
+    loc = zeros([length(idx), 2]);
     [loc(:, 2), loc(:, 1)] = ind2sub(size(metric), idx);
 end
