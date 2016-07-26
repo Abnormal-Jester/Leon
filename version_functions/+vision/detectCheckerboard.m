@@ -3,14 +3,14 @@ function [points, boardSize] = detectCheckerboard(I, sigma, peakThreshold)
 %#codegen
 
 [cxy, c45, Ix, Iy] = ...
-    vision.secondDerivCornerMetric(I, sigma);
+    vision.internal.calibration.checkerboard.secondDerivCornerMetric(I, sigma);
 [Ix2, Iy2, Ixy] = computeJacobianEntries(Ix, Iy);
 
-points0 = vision.find_peaks(cxy, peakThreshold);
+points0 = vision.internal.calibration.checkerboard.find_peaks(cxy, peakThreshold);
 scores0 = cxy(sub2ind(size(cxy), points0(:, 2), points0(:, 1)));
 board0 = growCheckerboard(points0, scores0, Ix2, Iy2, Ixy, 0);
 
-points45 = vision.find_peaks(c45, peakThreshold);
+points45 = vision.internal.calibration.checkerboard.find_peaks(c45, peakThreshold);
 scores45 = c45(sub2ind(size(c45), points45(:, 2), points45(:, 1)));
 board45 = growCheckerboard(points45, scores45, Ix2, Iy2, Ixy, pi/4);
 
@@ -19,11 +19,11 @@ boardSize = [0 0];
 if board0.isValid && board0.Energy < board45.Energy
     board0 = orient(board0, I);
     [points, boardSize] = toPoints(board0);
-    points = vision.subPixelLocation(cxy, points);
+    points = vision.internal.calibration.checkerboard.subPixelLocation(cxy, points);
 elseif board45.isValid
     board45 = orient(board45, I);
     [points, boardSize] = toPoints(board45);
-    points = vision.subPixelLocation(c45, points);
+    points = vision.internal.calibration.checkerboard.subPixelLocation(c45, points);
 end
 
 end
@@ -51,7 +51,7 @@ if isempty(scores)
         board = struct('BoardIdx', zeros(3), 'BoardCoords', zeros(3,3,3), ...
             'Energy', Inf, 'isValid', 0);
     else
-        board = vision.Checkerboard;
+        board = vision.internal.calibration.checkerboard.Checkerboard;
     end
     return;
 end
@@ -87,8 +87,8 @@ if isempty(coder.target)
     
     board = visionInitializeAndExpandCheckerboard(seedIdx_matrix,single(points),v1_matrix,v2_matrix);
 else
-    previousBoard = vision.Checkerboard;
-    currentBoard = vision.Checkerboard;
+    previousBoard = vision.internal.calibration.checkerboard.Checkerboard;
+    currentBoard = vision.internal.calibration.checkerboard.Checkerboard;
     for i = 1:numel(seedIdx)
         [v1, v2] = cornerOrientations(Ix2, Iy2, Ixy, round(points(seedIdx(i), :)));
         alpha1 = abs(atan2(v1(2), v1(1)));
