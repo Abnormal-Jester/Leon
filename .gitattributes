@@ -2,5 +2,6 @@
 *.p -crlf -diff -merge
 *.slx -crlf -diff -merge
 *.mdl -crlf -diff -merge
+*.asv -crlf -diff -merge
 
 *.bmp -crlf -diff -merge
