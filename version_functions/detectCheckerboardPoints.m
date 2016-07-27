@@ -183,10 +183,9 @@ else
 end
 
 % Parse the Name-Value pairs
-% parser = inputParser;
-% parser.addParameter('ShowProgressBar', false, @checkShowProgressBar);
-% parser.parse(args{:}); 
-% showProgressBar = parser.Results.ShowProgressBar;
+parser = inputParser;
+parser.parse(args{:}); 
+showProgressBar = parser.Results.ShowProgressBar;
 
 %--------------------------------------------------------------------------
 function [image2, showProgressBar] = parseInputsCodegen(image2)
