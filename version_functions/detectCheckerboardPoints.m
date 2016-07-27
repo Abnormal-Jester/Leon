@@ -471,10 +471,12 @@ sigma = 2;
 
 minCornerMetric = 0.15; % threshold for corner metric
 
-[points, boardSize] = detectCheckerboard(I, sigma, minCornerMetric);
+[points, boardSize] = vision.internal.calibration.checkerboard.detectCheckerboard(...
+    I, sigma, minCornerMetric);
 
 if isempty(points)
     sigma = 4;
-    [points, boardSize] = detectCheckerboard(I, sigma, minCornerMetric);
+    [points, boardSize] = vision.internal.calibration.checkerboard.detectCheckerboard(...
+        I, sigma, minCornerMetric);
 end
 
