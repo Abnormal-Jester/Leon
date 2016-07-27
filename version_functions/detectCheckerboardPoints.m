@@ -131,12 +131,12 @@ function [imagePoints, boardSize, imageIdx, userCanceled] = detectCheckerboardPo
 
 %#codegen
 
-if isempty(target)
+if isempty(coder.target)
     [images2, showProgressBar] = parseInputs(varargin{:});
 else
-    errorIf(ischar(I), 'vision:calibrate:codegenFileNamesNotSupported');
-    errorIf(iscell(I), 'vision:calibrate:codegenFileNamesNotSupported');
-    errorIf(isnumeric(I) && size(I, 4) > 1,...
+    coder.internal.errorIf(ischar(I), 'vision:calibrate:codegenFileNamesNotSupported');
+    coder.internal.errorIf(iscell(I), 'vision:calibrate:codegenFileNamesNotSupported');
+    coder.internal.errorIf(isnumeric(I) && size(I, 4) > 1,...
         'vision:calibrate:codegenMultipleImagesNotSupported');
     [images2, showProgressBar] = parseInputsCodegen(varargin{:});
 end
@@ -331,7 +331,7 @@ validClasses = {'double', 'single', 'uint8', 'int16', 'uint16'};
 validateattributes(images, validClasses,...
     {'nonempty', 'real', 'nonsparse'},...
     mfilename, 'images'); 
-errorIf(size(images, 3) ~= 1 && size(images, 3) ~= 3,...
+coder.internal.errorIf(size(images, 3) ~= 1 && size(images, 3) ~= 3,...
     'vision:dims:imageNot2DorRGB');
 
 
@@ -355,17 +355,17 @@ end
 
 %--------------------------------------------------------------------------
 function checkStereoImages(images1, images2)
-errorIf(strcmp(class(images1), class(images2)) == 0,...
+coder.internal.errorIf(strcmp(class(images1), class(images2)) == 0,...
     'vision:calibrate:stereoImagesMustBeSameClass');
 
-errorIf(~ischar(images1) && any(size(images1) ~= size(images2)),...
+coder.internal.errorIf(~ischar(images1) && any(size(images1) ~= size(images2)),...
     'vision:calibrate:stereoImagesMustBeSameSize');
 
 %--------------------------------------------------------------------------
 function checkThatBoardIsAsymmetric(boardSize)
 % ideally, a board should be asymmetric: one dimension should be even, and
 % the other should be odd.
-if isempty(target)
+if isempty(coder.target)
     if ~all(boardSize == 0) && (~xor(mod(boardSize(1), 2), mod(boardSize(2), 2))...
             || boardSize(1) == boardSize(2))
         s = warning('query', 'backtrace');
