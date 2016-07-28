@@ -1,4 +1,4 @@
-function [ imagePrefix, imageFormat ] = soloImageExtraction( fileName )
+function [ imagePrefix, imageFormat ] = imageDataExtraction( fileName )
 %soloImageExtraction Summary of this function goes here
 %   Detailed explanation goes here
 

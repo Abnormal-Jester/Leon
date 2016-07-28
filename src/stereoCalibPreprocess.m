@@ -1,6 +1,10 @@
+% Set active
 activeImageDir = colorDir;
 activeImageSet = colorImages;
-processActiveImageSet;
+
+generateRequiredVariables;
+individualImageRetrieval;
+
 activeImageSetNum = 1;
 clickCalib;
 
@@ -17,7 +21,8 @@ end
 
 activeImageDir = irDir;
 activeImageSet = irImages;
-processActiveImageSet;
+generateRequiredVariables;
+individualImageRetrieval;
 activeImageSetNum = 2;
 clickCalib;
 
