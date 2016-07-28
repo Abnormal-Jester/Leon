@@ -21,7 +21,7 @@ cell_list{1,3} = {'Extract Corners','extractProcess;'};
 cell_list{2,1} = {'Run stereo calibration','calibStereo;'};
 cell_list{2,2} = {'Clear','clear;'};
 
-cell_list{2,3} = {'Exit',['disp(''Bye. To run again, type my_gui.''); close(' num2str(fig_number) '); clearvars my_window;']}; %{'Exit','calib_gui;'};
+cell_list{2,3} = {'Exit',['disp(''Bye. To run again, type calib.''); close(' num2str(fig_number) '); clearvars my_window;']}; %{'Exit','calib_gui;'};
 
 
 
