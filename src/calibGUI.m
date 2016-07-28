@@ -14,7 +14,7 @@ kc = zeros(5,1);
 clearwin;
 dont_ask=1;
 
-cell_list{1,1} = {'Select image sets','extractValidImageSets;'};
+cell_list{1,1} = {'Select image sets','imageSetExtraction;'};
 cell_list{1,2} = {'Enter Constants','setConstants;'};
 cell_list{1,3} = {'Extract Corners','extractProcess;'};
 
