@@ -16,4 +16,6 @@ activeImageSetNum = 2;
 
 calibPreprocess;
 
+clear activeImageDir activeImageSet save_name activeImageSetNum;
+
 reopenGUI;
