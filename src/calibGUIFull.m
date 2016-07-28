@@ -1,6 +1,3 @@
-%function calib_gui_normal,
-
-
 cell_list = {};
 
 
@@ -46,4 +43,3 @@ my_window = gcf;
 
 %-------- End editable region -------------%
 %-------- End editable region -------------%
-
