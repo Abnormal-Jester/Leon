@@ -19,7 +19,7 @@ dont_ask=1;
 
 cell_list{1,1} = {'Select image sets','imageSetExtraction;'};
 cell_list{1,2} = {'Enter Constants','setConstants;'};
-cell_list{1,3} = {'Extract Corners','extractProcess;'};
+cell_list{1,3} = {'Extract Corners','stereoCalibPreprocess;'};
 
 cell_list{2,1} = {'Run stereo calibration','calibStereo;'};
 cell_list{2,2} = {'Clear','clear -except calibGUIWindow;'};
