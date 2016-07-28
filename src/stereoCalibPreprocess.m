@@ -1,39 +1,19 @@
-% Set active
+% Set active variables
 activeImageDir = colorDir;
 activeImageSet = colorImages;
-
-generateRequiredVariables;
-individualImageRetrieval;
-
-activeImageSetNum = 1;
-clickCalib;
-
-go_calib_optim
-
 save_name = 'Calib_Results_right';
-my_saving_calib
+% Used to parse the autoImagePoints from the MATLAB toolbox.
+activeImageSetNum = 1;
 
-save_name = 'Calib_Results_right.mat';
-if exist('calib_data.mat', 'file'),
-    delete calib_data.mat
-end
+calibPreprocess;
 
-
+% set active variables
 activeImageDir = irDir;
 activeImageSet = irImages;
-generateRequiredVariables;
-individualImageRetrieval;
-activeImageSetNum = 2;
-clickCalib;
-
-go_calib_optim
-
 save_name = 'Calib_Results_left';
-my_saving_calib
+% Used to parse the autoImagePoints from the MATLAB toolbox.
+activeImageSetNum = 2;
 
-save_name = 'Calib_Results_left.mat';
-if exist('calib_data.mat', 'file'),
-    delete calib_data.mat
-end
+calibPreprocess;
 
 reopenGUI;

@@ -1,3 +1,7 @@
+% Use the MATLAB toolbox results to automatically fill in the squares the
+% toolbox was able to find. Allow manual corner selection for the rest of the
+% images.
+
 var2fix = 'map';
 fixvariable;
 
@@ -49,7 +53,7 @@ end;
 if ~dont_ask,
     % Refocuses the window onto the Command Window for the input prompt
     commandwindow;
-    
+
     ima_numbers = input('Number(s) of image(s) to process ([] = all images) = ');
 else
     ima_numbers = [];
@@ -67,29 +71,29 @@ kk_first = ima_proc(1); %input('Start image number ([]=1=first): ');
 
 
 if exist(['wintx_' num2str(kk_first)], 'var'),
-    
+
     eval(['wintxkk = wintx_' num2str(kk_first) ';']);
-    
+
     if isempty(wintxkk) || isnan(wintxkk),
-        
+
         wintx = wintx_default;
         winty = winty_default;
-        
+
     end;
-    
+
 else
-    
+
     wintx = wintx_default;
     winty = winty_default;
-    
+
 end;
 
 
 if ~dont_ask,
-    
+
     % Refocuses the window onto the Command Window for the input prompt
     commandwindow;
-    
+
     fprintf(1,'Do you want to use the automatic square counting mechanism (0=[]=default)\n');
     manual_squares = input('  or do you always want to enter the number of squares manually (1,other)? ');
     if isempty(manual_squares),
@@ -116,23 +120,23 @@ usefulNums = alphaOrderMake(sum(checkerboardPairsUsed));
 skip = 0;
 
 for getkk = ima_proc,
-    
+
     kk = alphaOrder(getkk, n_ima)
-    
+
     if exist(['I_' num2str(kk)], 'var'),
-        
+
         local_auto_fail = 0;
         good_squares = 0;
         first_try = checkerboardPairsUsed(getkk);
-        
+
         if ~first_try
             skip = skip + 1;
         end
-        
+
         while ~good_squares
             if first_try
                 usefulkk = getkk - skip
-                
+
                 clickImaCalib;
                 first_try = 0;
             else
@@ -143,20 +147,20 @@ for getkk = ima_proc,
                 manualClickImaCalib;
                 local_auto_fail = 0;
             end
-            
+
         end
-        
+
         active_images(kk) = 1;
     else
         eval(['dX_' num2str(kk) ' = NaN;']);
-        eval(['dY_' num2str(kk) ' = NaN;']);  
-        
+        eval(['dY_' num2str(kk) ' = NaN;']);
+
         eval(['wintx_' num2str(kk) ' = NaN;']);
         eval(['winty_' num2str(kk) ' = NaN;']);
-        
+
         eval(['x_' num2str(kk) ' = NaN*ones(2,1);']);
         eval(['X_' num2str(kk) ' = NaN*ones(3,1);']);
-        
+
         eval(['n_sq_x_' num2str(kk) ' = NaN;']);
         eval(['n_sq_y_' num2str(kk) ' = NaN;']);
     end;
@@ -172,20 +176,20 @@ check_active_images;
 for kk = 1:n_ima,
     if ~exist(['x_' num2str(kk)], 'var'),
         eval(['dX_' num2str(kk) ' = NaN;']);
-        eval(['dY_' num2str(kk) ' = NaN;']);  
-        
+        eval(['dY_' num2str(kk) ' = NaN;']);
+
         eval(['x_' num2str(kk) ' = NaN*ones(2,1);']);
         eval(['X_' num2str(kk) ' = NaN*ones(3,1);']);
-        
+
         eval(['n_sq_x_' num2str(kk) ' = NaN;']);
         eval(['n_sq_y_' num2str(kk) ' = NaN;']);
     end;
-    
+
     if ~exist(['wintx_' num2str(kk)], 'var') || ~exist(['winty_' num2str(kk)], 'var'),
-        
+
         eval(['wintx_' num2str(kk) ' = NaN;']);
         eval(['winty_' num2str(kk) ' = NaN;']);
-        
+
     end;
 end;
 
@@ -198,7 +202,7 @@ end;
 eval(string_save);
 
 if ishandle(1),
-    
+
     set(1, 'HandleVisibility', 'off');
     close all;
     set(1, 'HandleVisibility', 'on');

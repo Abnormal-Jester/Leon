@@ -1,3 +1,4 @@
+% The images are retrieved using the original toolbox.
 
 currentDir = pwd;
 
@@ -13,3 +14,5 @@ check_directory
 ima_read_calib
 
 cd (currentDir);
+
+clearvars currentDir;
