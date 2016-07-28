@@ -1,12 +1,20 @@
-
-validImages = false;
-checkContinue = false;
+function [colorImages, irImages, colorDir, irDir] = imageSetSelection
+% imageSetSelection Prompt the user for the color and ir image sets
+%
+%   Have the user select the directory that contains the color images and the
+%   directory that contains the IR images, verify there are enough images, then
+%   keep the image sets.
 
 fprintf(1, '\n');
 fprintf(1, 'Obtaining the image set...\n');
 
-while ~validImages
-    
+validImageSetsExist = false;
+promptAttemptRepeat = true;
+tempCheck = [];
+
+while ~validImageSetsExist
+
+    % Select directories
     fprintf(1, 'Select the Color image directory.\n');
     colorDir = uigetdir('', 'Select the Color image directory');
     tempPath = fileparts(colorDir);
@@ -14,35 +22,34 @@ while ~validImages
     irDir = uigetdir(tempPath, 'Select the IR image directory');
     clearvars tempPath;
 
+    % Obtain images sets
     irImages = imageSet(irDir);
     colorImages = imageSet(colorDir);
 
+    % Verify image count
     if irImages.Count ~= colorImages.Count
         fprintf(1, 'The number of images in each set do not match.\n');
-        checkContinue = true;
     elseif irImages.Count <= 10
         fprintf(1, 'More than 10 images are required.\n');
-        return
     elseif irImages.Count <= 14
-        fprintf(1, 'It is recommended to have at least 15 initial images.\n');
-        checkContinue = true;
+        fprintf(1, 'More than 15 images are recommended.\n');
     else
-        validImages = true;
+        fprintf(1, 'The image counts are valid.\n');
+        validImageSetsExist = true;
+        promptAttemptRepeat = false;
     end
-    
-    if checkContinue
+
+    % Prompt attempt to select the directories again
+    if promptAttemptRepeat
         tempCheck = input('Continue? ([] = Yes, Number = No) ');
         if isempty(tempCheck)
-            validImages = true;
-            clearvars tempCheck;
+            validImageSetsExist = true;
         else
             error('Valid image set not found');
         end
     end
-    checkContinue = false;
 end
 
-clearvars checkContinue;
-clearvars validImages;
-
 fprintf(1, 'Image set obtained.\n\n');
+
+end
