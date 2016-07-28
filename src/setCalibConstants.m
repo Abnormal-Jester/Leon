@@ -30,6 +30,6 @@ cameraID = input('Camera ID number = ');
 fprintf(1, 'Constants obtained.\n\n');
 
 % Opens the GUI component if it exists.
-if ishandle(1),
-    figure(1);
+if exist('calibGUIWindow', 'var'),
+    figure(calibGUIWindow);
 end

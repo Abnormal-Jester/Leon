@@ -31,6 +31,4 @@ if exist('calib_data.mat', 'file'),
     delete calib_data.mat
 end
 
-if ishandle(1),
-    figure(1);
-end
+reopenGUI;

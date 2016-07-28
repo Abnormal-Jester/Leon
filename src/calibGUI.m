@@ -4,6 +4,9 @@ cell_list = {};
 %-------- Begin editable region -------------%
 %-------- Begin editable region -------------%
 
+if exist('calibGUIWindow', 'var'),
+    close calibGUIWindow;
+end
 
 fig_number = 1;
 
@@ -19,14 +22,15 @@ cell_list{1,2} = {'Enter Constants','setConstants;'};
 cell_list{1,3} = {'Extract Corners','extractProcess;'};
 
 cell_list{2,1} = {'Run stereo calibration','calibStereo;'};
-cell_list{2,2} = {'Clear','clear;'};
-
-cell_list{2,3} = {'Exit',['disp(''Bye. To run again, type calib.''); close(' num2str(fig_number) '); clearvars my_window;']}; %{'Exit','calib_gui;'};
+cell_list{2,2} = {'Clear','clear -except calibGUIWindow;'};
+cell_list{2,3} = {'Exit',['disp(''Bye. To run again, type calib.''); close(' num2str(fig_number) '); clearvars my_window;']}; % {'Exit','calib_gui;'};
 
 
 
 
 show_window(cell_list,fig_number,title_figure,130,18,0,'clean',12);
+
+calibGUIWindow = gcf;
 
 %-------- End editable region -------------%
 %-------- End editable region -------------%
