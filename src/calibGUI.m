@@ -18,7 +18,7 @@ clearwin;
 dont_ask=1;
 
 cell_list{1,1} = {'Select image sets','imageSetExtraction;'};
-cell_list{1,2} = {'Enter Constants','setConstants;'};
+cell_list{1,2} = {'Enter Constants','setCalibConstants;'};
 cell_list{1,3} = {'Extract Corners','stereoCalibPreprocess;'};
 
 cell_list{2,1} = {'Run stereo calibration','calibStereo;'};
