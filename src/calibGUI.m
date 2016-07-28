@@ -20,7 +20,7 @@ cell_list{1,1} = {'Select image sets','imageSetExtraction;'};
 cell_list{1,2} = {'Enter Constants','setCalibConstants;'};
 cell_list{1,3} = {'Extract Corners','stereoCalibPreprocess;'};
 
-cell_list{2,1} = {'Run stereo calibration','calibStereo;'};
+cell_list{2,1} = {'Run stereo calibration','stereoCalib;'};
 cell_list{2,2} = {'Clear','clearvars -except calibGUIWindow;'};
 cell_list{2,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGUIWindow); clearvars calibGUIWindow;'}; % {'Exit','calib_gui;'};
 
