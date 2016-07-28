@@ -11,7 +11,6 @@ fprintf(1, 'Obtaining the image set...\n');
 validImageSetsExist = false;
 fatalError = false;
 promptAttemptRepeat = false;
-tempCheck = [];
 
 while ~validImageSetsExist
 

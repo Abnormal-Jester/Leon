@@ -1,4 +1,4 @@
-function [autoImagePoints, boardSize, checkerboardPairsUsed] = imageSetProcessing (colorImages, irImages);
+function [autoImagePoints, boardSize, checkerboardPairsUsed] = imageSetProcessing (colorImages, irImages)
 % imageSetProcessing Use the MATLAB Computer Vision System Toolbox to preprocess the images.
 %
 %   This method exists in order to keep imageSetExtraction looking clean.
