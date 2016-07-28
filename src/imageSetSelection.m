@@ -9,6 +9,7 @@ fprintf(1, '\n');
 fprintf(1, 'Obtaining the image set...\n');
 
 validImageSetsExist = false;
+fatalError = false;
 promptAttemptRepeat = true;
 tempCheck = [];
 
@@ -28,19 +29,28 @@ while ~validImageSetsExist
 
     % Verify image count
     if irImages.Count ~= colorImages.Count
-        fprintf(1, 'The number of images in each set do not match.\n');
+        fprintf(1, 'ERROR: The number of images in each set do not match.\n');
+        fatalError = true;
     elseif irImages.Count <= 10
-        fprintf(1, 'More than 10 images are required.\n');
+        fprintf(1, 'ERROR: More than 10 images are required.\n');
+        fatalError = true;
     elseif irImages.Count <= 14
-        fprintf(1, 'More than 15 images are recommended.\n');
+        fprintf(1, 'WARNING: More than 15 images are recommended.\n');
     else
         fprintf(1, 'The image counts are valid.\n');
         validImageSetsExist = true;
         promptAttemptRepeat = false;
     end
 
-    % Prompt attempt to select the directories again
-    if promptAttemptRepeat
+    % Force entry again or prompt attempt to select the directories again
+    if fatalError
+        tempCheck = input('Continue? ([] = Yes, Number = No) ');
+        if isempty(tempCheck)
+            fatalError = false;
+        else
+            error('Valid image set not found');
+        end
+    elseif promptAttemptRepeat
         tempCheck = input('Continue? ([] = Yes, Number = No) ');
         if isempty(tempCheck)
             validImageSetsExist = true;
