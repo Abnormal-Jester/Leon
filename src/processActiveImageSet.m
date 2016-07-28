@@ -5,27 +5,18 @@ currentDir = pwd;
 
 cd (activeImageDir);
 
-file_full_name = char(activeImageSet.ImageLocation(1, 1));
+fileName = char(activeImageSet.ImageLocation(1, 1));
+[calib_name, format_image] = soloImageExtraction (fileName);
 
-[~,temp_name,format_image] = fileparts(file_full_name);
-
-format_image = format_image(2:end);
-
-startIndex = regexp(temp_name,'\d+$');
-
-calib_name = temp_name(1:startIndex-1);
-first_num = str2double(temp_name(startIndex:end));
-
-
-
-% Obtain a list of all the images and other various variables
+% Obtain a list of all the images and other variables.
+% Required variables:
+%  - calib_name
+%  - format_image
 check_directory
 
 % Read the images
 ima_read_calib
 
-if exist('my_window', 'var'),
-    figure(my_window);
-end
+reopenGUI
 
 cd (currentDir);
