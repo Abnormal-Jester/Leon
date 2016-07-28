@@ -10,6 +10,6 @@ fprintf(1, 'Processing image sets...\n');
 [autoImagePoints,boardSize,checkerboardPairsUsed] = detectCheckerboardPoints(...
     colorImages.ImageLocation, irImages.ImageLocation);
 
-fprintf(1, 'Image sets analized.\n\n');
+fprintf(1, 'Image sets processed.\n\n');
 
 end
