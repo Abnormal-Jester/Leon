@@ -1,3 +1,6 @@
+% Notifies the user of the requirements the image set must have in order to be
+% extracted correctly.
+
 fprintf(1, '\n');
 fprintf(1, 'The Color and IR images must be in separate folders.\n');
 fprintf(1, 'The folders must only contain the images of the checkerboard.\n');
