@@ -15,7 +15,6 @@ title_figure = 'Camera Calibration Toolbox - Custom Version 1.01';
 clear fc cc kc KK
 kc = zeros(5,1);
 clearwin;
-dont_ask=1;
 
 cell_list{1,1} = {'Select image sets','imageSetExtraction;'};
 cell_list{1,2} = {'Enter Constants','setCalibConstants;'};
@@ -27,6 +26,7 @@ cell_list{2,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibG
 
 
 show_window(cell_list,fig_number,title_figure,130,18,0,'clean',12);
+clearvars fig_number title_figure kc cell_list;
 
 assignin('base', 'calibGUIWindow', gcf)
 
