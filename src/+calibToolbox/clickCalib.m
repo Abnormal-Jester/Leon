@@ -107,7 +107,7 @@ end;
 
 % for kk = ima_proc,
 %     for usefulkk = 1:sum(checkerboardPairsUsed),
-%         clickImaCalib
+%         calibToolbox.clickImaCalib
 %         fprintf(1, [num2str(kk) ', ' num2str(usefulkk)]);
 %         pause;
 %     end
@@ -137,14 +137,14 @@ for getkk = ima_proc,
             if first_try
                 usefulkk = getkk - skip
 
-                clickImaCalib;
+                calibToolbox.clickImaCalib;
                 first_try = 0;
             else
-                manualClickImaCalib;
+                calibToolbox.manualClickImaCalib;
             end
 
             if local_auto_fail,
-                manualClickImaCalib;
+                calibToolbox.manualClickImaCalib;
                 local_auto_fail = 0;
             end
 

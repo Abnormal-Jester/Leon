@@ -1,11 +1,11 @@
 generateRequiredVariables;
 individualImageRetrieval;
 
-clickCalib;
+calibToolbox.clickCalib;
 
-go_calib_optim
+go_calib_optim;
 
-my_saving_calib
+calibToolbox.savingCalib;
 
 if exist('calib_data.mat', 'file'),
     delete calib_data.mat
