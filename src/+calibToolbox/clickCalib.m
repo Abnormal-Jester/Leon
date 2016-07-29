@@ -115,13 +115,13 @@ end;
 
 
 alphaNums = alphaOrderMake(n_ima);
-[~,kkMax] = max(alphaNums)
+[~,kkMax] = max(alphaNums);
 usefulNums = alphaOrderMake(sum(checkerboardPairsUsed));
 skip = 0;
 
 for getkk = ima_proc,
 
-    kk = alphaOrder(getkk, n_ima)
+    kk = alphaOrder(getkk, n_ima);
 
     if exist(['I_' num2str(kk)], 'var'),
 
@@ -135,7 +135,7 @@ for getkk = ima_proc,
 
         while ~good_squares
             if first_try
-                usefulkk = getkk - skip
+                usefulkk = getkk - skip;
 
                 calibToolbox.clickImaCalib;
                 first_try = 0;
