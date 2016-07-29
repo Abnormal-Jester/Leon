@@ -1,12 +1,17 @@
 function [ colorDir, irDir ] = selectAllDir (startPath)
-%SELECTALLDIR Double open directory dialog box
+%SELECTALLDIR Open two directory dialog box with prompts
 %   DIRECTORYNAME = UIGETDIR(STARTPATH)
-%   displays two dialog boxs one after another for the user to browse through
-%   the directory structure and select the color image directory and ir
-%   image directory.
+%   displays information about the desired directory, displays two dialog boxs
+%   for the user to use to select the desired directories.
 %
 %   The STARTPATH parameter determines the initial folder in which the
 %   dialog box opens.
+%
+%   When the STARTPATH is a valid path, the dialog box opens in the
+%   specified folder.
+%
+%   When the STARTPATH is an empty string ('') or is not a valid path, the
+%   dialog box opens in the current folder.
 %
 %   See also UIGETDIR
 
