@@ -1,4 +1,4 @@
-my_load_stereo_calib_files
+calibToolbox.loadStereoCalibFiles
 
 go_calib_stereo
 
