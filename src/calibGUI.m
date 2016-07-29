@@ -16,7 +16,7 @@ clear fc cc kc KK
 kc = zeros(5,1);
 clearwin;
 
-cell_list{1,1} = {'Select image sets','imageSetExtraction;'};
+cell_list{1,1} = {'Select image sets','calibImageData.obtainData;'};
 cell_list{1,2} = {'Enter Constants','setCalibConstants;'};
 cell_list{1,3} = {'Extract Corners','stereoCalibPreprocess;'};
 

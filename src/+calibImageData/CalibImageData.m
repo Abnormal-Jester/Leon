@@ -1,4 +1,4 @@
-classdef CalibImageSet
+classdef CalibImageData
    properties
       mImagePoints
       mImageSet
@@ -9,7 +9,7 @@ classdef CalibImageSet
       mBoardSize
    end
    methods
-      function obj = CalibImageSet(imagePoints,imageSet,dir,prefix,type,imagesUsed,boardSize)
+      function obj = CalibImageData(imagePoints,imageSet,dir,prefix,type,imagesUsed,boardSize)
          if nargin == 7
             obj.mImagePoints = imagePoints;
             obj.mImageSet = imageSet;

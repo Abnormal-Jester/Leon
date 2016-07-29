@@ -1,9 +1,12 @@
-function [colorImages, irImages, colorDir, irDir] = imageSetSelection
-% imageSetSelection Prompt the user for the color and ir image sets
-%
+function [colorImages, irImages, colorDir, irDir] = selectDirs
+% selectDirs Prompt the user for the color and ir image sets
 %   Have the user select the directory that contains the color images and the
 %   directory that contains the IR images, verify there are enough images, then
 %   keep the image sets.
+%
+%   I considered making this function take an argument for Color and IR, but
+%   the function has to validate that the user picks valid directories by
+%   comparing the directories, so I kept this function.
 
 fprintf(1, '\n');
 fprintf(1, 'Obtaining the image set...\n');
@@ -28,14 +31,14 @@ while ~validImageSetsExist
 
     % Verify image count
     if irImages.Count ~= colorImages.Count
-        fprintf(1, 'ERROR: The number of images in each set do not match.\n');
+        fprintf(2, 'ERROR: The number of images in each set do not match.\n');
         fatalError = true;
     elseif irImages.Count <= 10
-        fprintf(1, 'ERROR: More than 10 images are required.\n');
+        fprintf(2, 'ERROR: More than 10 images are required.\n');
         fprintf(1, 'At least 15 images are recommended for best quality.\n');
         fatalError = true;
     elseif irImages.Count <= 14
-        fprintf(1, 'WARNING: At least 15 images are recommended for best quality.\n');
+        fprintf(2, 'WARNING: At least 15 images are recommended for best quality.\n');
         promptAttemptRepeat = true;
     else
         fprintf(1, 'The image counts are valid.\n');
