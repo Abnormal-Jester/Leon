@@ -1,21 +1,19 @@
 % Set active variables
-activeImageDir = colorDir;
-activeImageSet = colorImages;
+activeData = colorData;
+
 save_name = 'Calib_Results_right';
 % Used to parse the autoImagePoints from the MATLAB toolbox.
-activeImageSetNum = 1;
 
 calibPreprocess;
 
 % set active variables
-activeImageDir = irDir;
-activeImageSet = irImages;
+activeData = irData
+
 save_name = 'Calib_Results_left';
 % Used to parse the autoImagePoints from the MATLAB toolbox.
-activeImageSetNum = 2;
 
 calibPreprocess;
 
-clear activeImageDir activeImageSet save_name activeImageSetNum;
+clear activeData save_name;
 
 reopenGUI;

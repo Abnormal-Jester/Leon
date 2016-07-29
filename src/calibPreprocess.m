@@ -1,4 +1,3 @@
-generateRequiredVariables;
 individualImageRetrieval;
 
 calibToolbox.clickCalib;

@@ -125,10 +125,10 @@ if manual_squares,
 
 %     n_sq_x = input(['Number of squares along the X direction ([]=' num2str(n_sq_x_default) ') = ']); %6
     n_sq_x = [];
-    if isempty(n_sq_x), n_sq_x = boardSize(1) - 2; end;
+    if isempty(n_sq_x), n_sq_x = activeData.mBoardSize(1) - 2; end;
 %     n_sq_y = input(['Number of squares along the Y direction ([]=' num2str(n_sq_y_default) ') = ']); %6
     n_sq_y = [];
-    if isempty(n_sq_y), n_sq_y = boardSize(2) - 2; end;
+    if isempty(n_sq_y), n_sq_y = activeData.mBoardSize(2) - 2; end;
 
 else
 
@@ -149,10 +149,10 @@ else
         disp('Could not count the number of squares in the grid. Enter manually.');
 %         n_sq_x = input(['Number of squares along the X direction ([]=' num2str(n_sq_x_default) ') = ']); %6
         n_sq_x = [];
-        if isempty(n_sq_x), n_sq_x = boardSize(1) - 2; end;
+        if isempty(n_sq_x), n_sq_x = activeData.mBoardSize(1) - 2; end;
 %         n_sq_y = input(['Number of squares along the Y direction ([]=' num2str(n_sq_y_default) ') = ']); %6
         n_sq_y = [];
-        if isempty(n_sq_y), n_sq_y = boardSize(2) - 2; end;
+        if isempty(n_sq_y), n_sq_y = activeData.mBoardSize(2) - 2; end;
 
     else
 

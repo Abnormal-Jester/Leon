@@ -20,9 +20,9 @@ fprintf(1, '\n');
 % the directory paths here. It also allows the user to check if the directory
 % paths are correct.
 fprintf(1, 'Color dir: ');
-disp(colorDir);
+disp(colorData.mDir);
 fprintf(1, 'IR dir: ');
-disp(irDir);
+disp(irData.mDir);
 
 cameraID = input('Camera ID number = ');
 

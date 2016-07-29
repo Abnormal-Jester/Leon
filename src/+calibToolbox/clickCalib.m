@@ -106,7 +106,7 @@ else
 end;
 
 % for kk = ima_proc,
-%     for usefulkk = 1:sum(checkerboardPairsUsed),
+%     for usefulkk = 1:sum(activeData.mImagesUsed),
 %         calibToolbox.clickImaCalib
 %         fprintf(1, [num2str(kk) ', ' num2str(usefulkk)]);
 %         pause;
@@ -116,7 +116,7 @@ end;
 
 alphaNums = alphaOrderMake(n_ima);
 [~,kkMax] = max(alphaNums);
-usefulNums = alphaOrderMake(sum(checkerboardPairsUsed));
+usefulNums = alphaOrderMake(sum(activeData.mImagesUsed));
 skip = 0;
 
 for getkk = ima_proc,
@@ -127,7 +127,7 @@ for getkk = ima_proc,
 
         local_auto_fail = 0;
         good_squares = 0;
-        first_try = checkerboardPairsUsed(getkk);
+        first_try = activeData.mImagesUsed(getkk);
 
         if ~first_try
             skip = skip + 1;

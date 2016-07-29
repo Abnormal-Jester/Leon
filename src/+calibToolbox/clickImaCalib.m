@@ -6,17 +6,17 @@ eval(['I = I_' num2str(kk) ';']);
 
 % Auto detect
 
-imagePoints = autoImagePoints(:,:,usefulkk,activeImageSetNum);
+imagePoints = activeData.mImagePoints(:,:,getkk);
 
 if exist(['wintx_' num2str(kk)], 'var'),
-    
+
     eval(['wintxkk = wintx_' num2str(kk) ';']);
-    
+
     if ~isempty(wintxkk) && ~isnan(wintxkk),
-        
+
         eval(['wintx = wintx_' num2str(kk) ';']);
         eval(['winty = winty_' num2str(kk) ';']);
-        
+
     end;
 end;
 
@@ -37,8 +37,8 @@ set(2,'color',[1 1 1]);
 x = [];
 y = [];
 
-my_dim_x = boardSize(1);
-my_dim_y = boardSize(2);
+my_dim_x = activeData.mBoardSize(1);
+my_dim_y = activeData.mBoardSize(2);
 
 my_len = length(imagePoints);
 
@@ -121,7 +121,7 @@ vO = vO / norm(vO);
 delta = 30;
 
 
-figure(2); 
+figure(2);
 image(I);
 colormap(map);
 hold on;
@@ -144,11 +144,11 @@ n_sq_y2 = count_squares(I,x4,y4,x1,y1,wintx);
 
 % If could not count the number of squares, enter manually
 
-if (n_sq_x1~=n_sq_x2)||(n_sq_y1~=n_sq_y2)||(n_sq_x1~=boardSize(1)-2)||(n_sq_y1~=boardSize(2)-2),
+if (n_sq_x1~=n_sq_x2)||(n_sq_y1~=n_sq_y2)||(n_sq_x1~=activeData.mBoardSize(1)-2)||(n_sq_y1~=activeData.mBoardSize(2)-2),
 
     disp('WARNING Could not count the number of squares in the grid.');
-    n_sq_x = boardSize(1)-2;
-    n_sq_y = boardSize(2)-2;
+    n_sq_x = activeData.mBoardSize(1)-2;
+    n_sq_y = activeData.mBoardSize(2)-2;
     local_auto_fail = 1;
 
 else
@@ -165,19 +165,19 @@ n_sq_y_default = n_sq_y;
 
 if (exist('dX', 'var')~=1)||(exist('dY', 'var')~=1), % This question is now asked only once
     % Enter the size of each square
-    
+
     % Refocuses the window onto the Command Window for the input prompt
     commandwindow;
-    
+
     if isempty(dX), dX = dX_default; else dX_default = dX; end;
     if isempty(dY), dY = dY_default; else dY_default = dY; end;
-    
+
 else
-    
+
     %fprintf(1,['Size of each square along the X direction: dX=' num2str(dX) 'mm\n']);
     %fprintf(1,['Size of each square along the Y direction: dY=' num2str(dY) 'mm   (Note: To reset the size of the squares, clear the variables dX and dY)\n']);
     %fprintf(1,'Note: To reset the size of the squares, clear the variables dX and dY\n');
-    
+
 end;
 
 
@@ -299,7 +299,7 @@ X = Xgrid;
 % Saves all the data into variables:
 
 eval(['dX_' num2str(kk) ' = dX;']);
-eval(['dY_' num2str(kk) ' = dY;']);  
+eval(['dY_' num2str(kk) ' = dY;']);
 
 eval(['wintx_' num2str(kk) ' = wintx;']);
 eval(['winty_' num2str(kk) ' = winty;']);
