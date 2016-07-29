@@ -4,15 +4,15 @@ fprintf(1,'\nProcessing image %d...\n',kk);
 
 eval(['I = I_' num2str(kk) ';']);
 
-if exist(['wintx_' num2str(kk)]),
-    
+if exist(['wintx_' num2str(kk)], 'var'),
+
     eval(['wintxkk = wintx_' num2str(kk) ';']);
-    
-    if ~isempty(wintxkk) & ~isnan(wintxkk),
-        
+
+    if ~isempty(wintxkk) && ~isnan(wintxkk),
+
         eval(['wintx = wintx_' num2str(kk) ';']);
         eval(['winty = winty_' num2str(kk) ';']);
-        
+
     end;
 end;
 
@@ -107,7 +107,7 @@ vO = vO / norm(vO);
 delta = 30;
 
 
-figure(2); 
+figure(2);
 image(I);
 colormap(map);
 hold on;
@@ -122,45 +122,45 @@ hold off;
 
 
 if manual_squares,
-    
+
 %     n_sq_x = input(['Number of squares along the X direction ([]=' num2str(n_sq_x_default) ') = ']); %6
     n_sq_x = [];
     if isempty(n_sq_x), n_sq_x = boardSize(1) - 2; end;
 %     n_sq_y = input(['Number of squares along the Y direction ([]=' num2str(n_sq_y_default) ') = ']); %6
     n_sq_y = [];
     if isempty(n_sq_y), n_sq_y = boardSize(2) - 2; end;
-    
+
 else
-    
+
     % Try to automatically count the number of squares in the grid
-    
+
     n_sq_x1 = count_squares(I,x1,y1,x2,y2,wintx);
     n_sq_x2 = count_squares(I,x3,y3,x4,y4,wintx);
     n_sq_y1 = count_squares(I,x2,y2,x3,y3,wintx);
     n_sq_y2 = count_squares(I,x4,y4,x1,y1,wintx);
-    
-    
-    
+
+
+
     % If could not count the number of squares, enter manually
-    
-    if (n_sq_x1~=n_sq_x2)|(n_sq_y1~=n_sq_y2),
-        
-        
+
+    if (n_sq_x1~=n_sq_x2)||(n_sq_y1~=n_sq_y2),
+
+
         disp('Could not count the number of squares in the grid. Enter manually.');
 %         n_sq_x = input(['Number of squares along the X direction ([]=' num2str(n_sq_x_default) ') = ']); %6
         n_sq_x = [];
         if isempty(n_sq_x), n_sq_x = boardSize(1) - 2; end;
 %         n_sq_y = input(['Number of squares along the Y direction ([]=' num2str(n_sq_y_default) ') = ']); %6
         n_sq_y = [];
-        if isempty(n_sq_y), n_sq_y = boardSize(2) - 2; end; 
-        
+        if isempty(n_sq_y), n_sq_y = boardSize(2) - 2; end;
+
     else
-        
+
         n_sq_x = n_sq_x1;
         n_sq_y = n_sq_y1;
-        
+
     end;
-    
+
 end;
 
 
@@ -168,20 +168,20 @@ n_sq_x_default = n_sq_x;
 n_sq_y_default = n_sq_y;
 
 
-if (exist('dX')~=1)|(exist('dY')~=1), % This question is now asked only once
+if (exist('dX', 'var')~=1)||(exist('dY', 'var')~=1), % This question is now asked only once
     % Enter the size of each square
-    
+
     dX = input(['Size dX of each square along the X direction ([]=' num2str(dX_default) 'mm) = ']);
     dY = input(['Size dY of each square along the Y direction ([]=' num2str(dY_default) 'mm) = ']);
     if isempty(dX), dX = dX_default; else dX_default = dX; end;
     if isempty(dY), dY = dY_default; else dY_default = dY; end;
-    
+
 else
-    
+
     fprintf(1,['Size of each square along the X direction: dX=' num2str(dX) 'mm\n']);
     fprintf(1,['Size of each square along the Y direction: dY=' num2str(dY) 'mm   (Note: To reset the size of the squares, clear the variables dX and dY)\n']);
     %fprintf(1,'Note: To reset the size of the squares, clear the variables dX and dY\n');
-    
+
 end;
 
 
@@ -232,7 +232,7 @@ if isempty(quest_distort),
     good_squares = 1;
 elseif quest_distort == 1,
     good_squares = 1;
-    
+
     % Estimation of focal length:
     c_g = [size(I,2);size(I,1)]/2 + .5;
     f_g = Distor2Calib(0,[[x(1) x(2) x(4) x(3)] - c_g(1);[y(1) y(2) y(4) y(3)] - c_g(2)],1,1,4,W,L,[-W/2 W/2 W/2 -W/2;L/2 L/2 -L/2 -L/2; 0 0 0 0],100,1,1);
@@ -265,8 +265,8 @@ ind_corners = [1 n_sq_x+1 (n_sq_x+1)*n_sq_y+1 (n_sq_x+1)*(n_sq_y+1)]; % index of
 ind_orig = (n_sq_x+1)*n_sq_y + 1;
 xorig = grid_pts(1,ind_orig);
 yorig = grid_pts(2,ind_orig);
-dxpos = mean([grid_pts(:,ind_orig) grid_pts(:,ind_orig+1)]');
-dypos = mean([grid_pts(:,ind_orig) grid_pts(:,ind_orig-n_sq_x-1)]');
+dxpos = mean([grid_pts(:,ind_orig) grid_pts(:,ind_orig+1)].');
+dypos = mean([grid_pts(:,ind_orig) grid_pts(:,ind_orig-n_sq_x-1)].');
 
 
 x_box_kk = [grid_pts(1,:)-(wintx+.5);grid_pts(1,:)+(wintx+.5);grid_pts(1,:)+(wintx+.5);grid_pts(1,:)-(wintx+.5);grid_pts(1,:)-(wintx+.5)];
@@ -309,7 +309,7 @@ X = Xgrid;
 % Saves all the data into variables:
 
 eval(['dX_' num2str(kk) ' = dX;']);
-eval(['dY_' num2str(kk) ' = dY;']);  
+eval(['dY_' num2str(kk) ' = dY;']);
 
 eval(['wintx_' num2str(kk) ' = wintx;']);
 eval(['winty_' num2str(kk) ' = winty;']);
