@@ -4,14 +4,16 @@ function [ colorDir, irDir ] = selectAndValidateAllDir
 %   makes the user select a directory, generates an exception, handles the
 %   exception, then throws the exception if the function failed.
 
+import manual.*;
+
 valid = false;
 repeatSelection = true;
 
 while repeatSelection
 
     [colorDir, irDir] = selectAllDir;
-    [valid, exception] = validateAllDir(dirRight, dirLeft);
-    [repeatSelection] = promptUser(valid, exception);
+    [valid, warning, error] = validateAllDir(colorDir, irDir);
+    [repeatSelection] = promptUser(valid, warning, error);
 
 end
 

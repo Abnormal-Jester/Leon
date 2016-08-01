@@ -6,8 +6,8 @@ commandwindow;
 try
     [cameraId] = inputCameraId;
     [squareSize] = inputSquareSize;
-    [colorDir, irDir] = selectAllDirAndValidate;
-catch
+    [colorDir, irDir] = selectAndValidateAllDir;
+catch e
     clearvars inputCameraId inputSquareSize colorDir irDir;
-    fprintf(2, 'Invalid Input');
+    disp(e.stack);
 end

@@ -1,17 +1,21 @@
-function [repeatSelection] = promptUser(validIn, exception)
+function [repeatSelection] = promptUser(validIn, warning, error)
 %PROMPTUSER Open two directory dialog box with prompts
-%   REPEATSELECTION = PROMPTUSER(VALIDIN, EXCEPTION)
+%   REPEATSELECTION = PROMPTUSER(VALIDIN, WARNING, ERROR)
 %   displays the exception message then propmts the user for a response
 %   depending on the exception level.
 
 valid = validIn;
 
-fprintf(1, exception.msgtext);
-
-if valid && exception.msgID == 0,
+if valid && isempty(warning),
+    fprintf(1, 'The image set is valid.');
+    fprintf(1, '\n');
+    
     repeatSelection = false;
 
 elseif valid
+    fprintf(1, warning);
+    fprintf(1, '\n');
+
     tempCheck = input('Use image set anyways? ([] = Yes, Number = No) ');
 
     if isempty(tempCheck)
@@ -21,6 +25,8 @@ elseif valid
     end
 
 else
+    fprintf(2, error);
+    fprintf(2, '\n');
 
     tempCheck = input('Select different image sets? ([] = Yes, Number = No) ');
 
@@ -31,6 +37,7 @@ else
     end
 
 end
+
 
 
 
