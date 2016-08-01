@@ -12,15 +12,15 @@ error = [];
 
 % These two image sets are lost and recreated again later, but they are not
 % output to keep the code cleaner.
-colorImages = imageSet(colorDir);
-irImages = imageSet(irDir);
-nImages = colorImages.Count;
+colorImageSet = imageSet(colorDir);
+irImageSet = imageSet(irDir);
+nImage = colorImageSet.Count;
 
 % Several other control-flow structures, but this was ultimately the easiest to
 % read.
-if colorImages.Count ~= irImages.Count
+if colorImageSet.Count ~= irImageSet.Count
     error = 'The number of images in each set do not match.';
-elseif nImages <= 10
+elseif nImage <= 10
     error = 'More than 10 images are required.';
 elseif strcmp(colorDir, irDir),
     error = 'The directories cannot be the same.';
@@ -29,7 +29,7 @@ else
     % The image sets meet the minimal requirements for the program to function.
     valid = true;
 
-    if nImages <= 14
+    if nImage <= 14
         warning = ['At least 15 images are recommended for the best quality'...
             'results.'];
     end
