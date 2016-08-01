@@ -1,9 +1,13 @@
 import manual.*;
 
+% Refocuses the window onto the Command Window for the input prompt
+commandwindow;
+
 try
-    test
-    me
+    [cameraId] = inputCameraId;
+    [squareSize] = inputSquareSize;
+    [colorDir, irDir] = selectAllDirAndValidate;
 catch
-    you
-    can
+    clearvars inputCameraId inputSquareSize colorDir irDir;
+    fprintf(2, 'Invalid Input');
 end
