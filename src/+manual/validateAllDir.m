@@ -9,7 +9,7 @@ function [ valid, exception ] = validateAllDir (colorDir, irDir)
 %   warnings have a value from 1-9 inclusive
 %   valid arguments have a value of 0
 %
-%   See also calib
+%   See also SELECTANDVALIDATEALLDIR
 
 valid = false;
 
@@ -28,12 +28,17 @@ elseif nImages <= 10
     exception = MException(18, 'More than 10 images are required.');
 elseif strcmp(colorDir, irDir),
     exception = MException(17, 'The directories cannot be the same.');
-elseif nImages <= 14
-    exception = MException(9, ['At least 15 images are recommended for the '...
-        'best quality results.']);
 else
-    exception = MException(0, 'The images are valid.');
+
+    % The image sets meet the minimal requirements for the program to function.
     valid = true;
+
+    if nImages <= 14
+        exception = MException(9, ['At least 15 images are recommended for the '...
+            'best quality results.']);
+    else
+        exception = MException(0, 'The images are valid.');
+    end
 end
 
 end
