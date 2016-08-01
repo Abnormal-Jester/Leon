@@ -8,6 +8,8 @@ try
     [squareSize] = inputSquareSize;
     [colorDir, irDir] = selectAndValidateAllDir;
 catch e
-    clearvars inputCameraId inputSquareSize colorDir irDir;
-    disp(e.stack);
+    disp(e);
+    clearvars inputCameraId inputSquareSize colorDir irDir e;
 end
+
+reopenGUI;
