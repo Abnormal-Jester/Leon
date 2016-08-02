@@ -1,9 +1,8 @@
-calibToolbox.loadStereoCalibFiles
 
-go_calib_stereo
+worldPoints = generateCheckerboardPoints(boardData.boardSize,squareSize);
 
-generate_ini
+imagePoints = zeros([size(colorData.imagePoints) 2] );
+imagePoints(:,:,:,1) = colorData.imagePoints;
+imagePoints(:,:,:,2) = irData.imagePoints;
 
-fprintf(1, '\nDone.\n');
-
-reopenGUI
+[stereoParams,pairsUsed,estimationErrors] = estimateCameraParameters(imagePoints,worldPoints);

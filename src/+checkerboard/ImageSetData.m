@@ -8,7 +8,7 @@ classdef ImageSetData
          if nargin == 2,
             obj.imagePoints = imagePoints;
             obj.imageSet = imageSet;
-         elseif nargin ==3,
+         elseif nargin == 3,
             obj = obj.setImagePoints(imagePoints, imagePairsUsed);
             obj.imageSet = imageSet;
          else
@@ -33,6 +33,15 @@ classdef ImageSetData
                count = count + 1;
             end
          end
+      end
+
+      function obj = addPoints(obj, pointLocation, pointSet)
+         obj.imagePoints(:,:,pointLocation) = pointSet;
+      end
+
+      function image = getImage(obj, number)
+         image = obj.imageSet.ImageLocation(number);
+         image = image{1,1};
       end
    end
 end

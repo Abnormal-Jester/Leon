@@ -21,9 +21,9 @@ clearwin;
 % 3 Manually detect the missing checkerboards
 % 4 Automatically use the data to generate save files and the ini file
 
-cell_list{1,1} = {'Select image sets','manual.obtainData;'};
-cell_list{1,2} = {'Enter Constants','setCalibConstants;'};
-cell_list{1,3} = {'Extract Corners','stereoCalibPreprocess;'};
+cell_list{1,1} = {'Enter Constants','manual.obtainData;'};
+cell_list{1,2} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
+cell_list{1,3} = {'Extract Corners',';'};
 
 % - Check errors
 % - Save current progress
@@ -33,6 +33,8 @@ cell_list{1,3} = {'Extract Corners','stereoCalibPreprocess;'};
 cell_list{2,1} = {'Run stereo calibration','stereoCalib;'};
 cell_list{2,2} = {'Clear','clearvars -except calibGUIWindow;'};
 cell_list{2,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGUIWindow); clearvars calibGUIWindow;'}; % {'Exit','calib_gui;'};
+
+% - Change settings
 
 
 show_window(cell_list,fig_number,title_figure,130,18,0,'clean',12);
