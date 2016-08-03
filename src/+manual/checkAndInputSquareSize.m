@@ -3,7 +3,7 @@
 %   current value of squareSize as the default value.
 
 if exist('squareSize', 'var')
-    [squareSize] = inputCameraId(squareSize);
+    [squareSize] = inputSquareSize(squareSize);
 else
-    [squareSize] = inputCameraId;
+    [squareSize] = inputSquareSize;
 end
