@@ -5,7 +5,7 @@ function cameraId = inputCameraId(defaultId)
 
 if nargin == 0
     defaultId = 0;
-else
+end
 
 try
     cameraId = input(['Camera ID number (' num2str(defaultId) ') = ']);
