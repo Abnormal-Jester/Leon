@@ -3,13 +3,8 @@ import manual.*;
 % Refocuses the window onto the Command Window for the input prompt
 commandwindow;
 
-if exist('cameraId', 'var')
-    [cameraId] = inputCameraId(cameraId);
-else
-    [cameraId] = inputCameraId;
-end
-
-[squareSize] = inputSquareSize;
+checkAndInputCameraId;
+checkAndInputSquareSize;
 
 try
     [colorDir, irDir] = selectAndValidateAllDir;
