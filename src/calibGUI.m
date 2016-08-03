@@ -22,17 +22,22 @@ clearwin;
 % 4 Automatically use the data to generate save files and the ini file
 
 cell_list{1,1} = {'Enter Constants','manual.obtainData;'};
-cell_list{1,2} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
-cell_list{1,3} = {'Run stereo calibration','stereoCalib;'};
+cell_list{1,2} = {'Enter Camera Id','manual.inputCameraId;'};
+cell_list{1,3} = {'Enter Square Size','manual.inputSquareSize;'};
+cell_list{1,4} = {'Select Image Directories','manual.inputSquareSize;'};
+
+cell_list{2,1} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
+
+cell_list{3,1} = {'Run stereo calibration','stereoCalib;'};
 
 % - Check errors
 % - Save current progress
 % - Clear
 % - Exit
 
-cell_list{2,1} = {'Save',';'};
-cell_list{2,2} = {'Clear','clearvars -except calibGUIWindow;'};
-cell_list{2,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGUIWindow); clearvars calibGUIWindow;'}; % {'Exit','calib_gui;'};
+cell_list{4,1} = {'Save',';'};
+cell_list{4,2} = {'Clear','clearvars -except calibGUIWindow;'};
+cell_list{4,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGUIWindow); clearvars calibGUIWindow;'}; % {'Exit','calib_gui;'};
 
 % - Change settings
 
