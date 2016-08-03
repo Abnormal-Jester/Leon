@@ -9,9 +9,6 @@ else
 
 try
     cameraId = input(['Camera ID number (' num2str(defaultId) ') = ']);
-    % Considered 'inputdlg', but it slowed the process because the user has
-    % to click on the 'ok' button and cannot press enter. A custom function
-    % may be implemented in the future.
 
     if isblank(cameraId),
         cameraId = defaultId;
