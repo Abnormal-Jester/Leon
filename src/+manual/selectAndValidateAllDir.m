@@ -1,5 +1,5 @@
-function [ colorDir, irDir ] = selectAndValidateAllDir
-%selectAndValidateAllDir Obtains the directory to valid color and ir image sets.
+function [colorDir, irDir] = selectAndValidateAllDir
+% selectAndValidateAllDir Obtains the directory to valid color and ir image sets
 %   [colorDir, irDir] = selectAndValidateAllDir
 %   makes the user select a directory, generates an exception, handles the
 %   exception, then throws the exception if the function failed.

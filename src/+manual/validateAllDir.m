@@ -1,10 +1,10 @@
-function [ valid, warning, error ] = validateAllDir (colorDir, irDir)
-%VALIDATEALLDIR Checks if the directories can be used by a calibration program
-%   [VALID, WARNING, ERROR] = VALIDATEALLDIR(COLORDIR, IRDIR)
+function [valid, warning, error] = validateAllDir(colorDir, irDir)
+% validateAllDir Checks if the directories can be used by a calibration program
+%   [valid, warning, error] = validateAllDir(colorDir, irDir)
 %   converts the directories into image sets and compares the number of images
 %   in each image set in order to verify the image sets are valid.
 %
-%   See also SELECTANDVALIDATEALLDIR
+%   See also selectAndValidateAllDir
 
 valid = false;
 warning = [];

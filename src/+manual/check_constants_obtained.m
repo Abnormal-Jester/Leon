@@ -1,4 +1,4 @@
-% check_constants_obtained checks if the calibration constants have values
+% check_constants_obtained checks if all the constants required to calibrate the camera exist
 
 constantsObtained = true;
 

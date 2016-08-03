@@ -1,10 +1,11 @@
-% obtain_valid_directories
+% obtain_valid_directories prompts the user for two image directories and
+%   verifies the directories can be used by the calibration program
 
 try
     [colorDir, irDir] = selectAndValidateAllDir;
-catch e
-    disp(e);
-    clearvars inputCameraId inputSquareSize colorDir irDir e;
+catch exception
+    fprintf(2, getReport(exception));
+    clearvars colorDir irDir;
 end
 
 check_constants_obtained

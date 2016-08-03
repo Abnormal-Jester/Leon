@@ -1,8 +1,12 @@
-% command_and_reopen Focuses command windows, runs a script, then reopens the gui
+% command_and_reopen Puts focus on the command windows, evaluates a string, then reopens the gui
+%   Takes the variable 'run' as a parameter
 
-commandwindow;
+try
+    commandwindow;
+    eval(run);
 
-eval(run);
-clearvars run;
+catch exception
+    fprintf(2, getReport(exception));
+end
 
-reopenGUI;
+reopen_gui;

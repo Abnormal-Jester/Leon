@@ -1,19 +1,19 @@
-function [ colorDir, irDir ] = selectAllDir (startPath)
-%SELECTALLDIR Open two directory dialog box with prompts
-%   DIRECTORYNAME = UIGETDIR(STARTPATH)
+function [colorDir, irDir] = selectAllDir (startPath)
+% selectAllDir Open two directory dialog box with prompts
+%   [colorDir, irDir] = selectAllDir(startPath)
 %   displays information about the desired directory, displays two dialog boxs
 %   for the user to use to select the desired directories.
 %
-%   The STARTPATH parameter determines the initial folder in which the
+%   The startPath parameter determines the initial folder in which the
 %   dialog box opens.
 %
-%   When the STARTPATH is a valid path, the dialog box opens in the
+%   When the startPath is a valid path, the dialog box opens in the
 %   specified folder.
 %
-%   When the STARTPATH is an empty string ('') or is not a valid path, the
+%   When the startPath is an empty string ('') or is not a valid path, the
 %   dialog box opens in the current folder.
 %
-%   See also UIGETDIR
+%   See also uigetdir
 
 narginchk(0,1);
 
