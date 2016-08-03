@@ -29,6 +29,9 @@ cell_list{1,3} = {'Enter Square Size',...
     'run=''manual.check_and_input_square_size;'';command_and_reopen()'};
 cell_list{1,4} = {'Select Image Directories','manual.selectAndValidateAllDir;'};
 
+cell_list{1,5} = {'Enter Missing Constants',...
+    'run=''manual.obtain_missing_data;'';command_and_reopen()'};
+
 cell_list{2,1} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
 
 cell_list{3,1} = {'Run stereo calibration','stereoCalib;'};
