@@ -10,7 +10,7 @@ end
 try
     cameraId = input(['Camera ID number (' num2str(defaultId) ') = ']);
 
-    if isblank(cameraId),
+    if isblank(cameraId)
         cameraId = defaultId;
     end
 catch
