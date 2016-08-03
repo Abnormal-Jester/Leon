@@ -1,12 +1,20 @@
-function squareSize = inputSquareSize
-%INPUTSQUARESIZE Prompts the user for the size of the checkerboard squares
+function squareSize = inputSquareSize(defaultSquareSize)
+% inputSquareSize Prompts the user for the size of the checkerboard squares
+%   squareSize = inputSquareSize
+%   squareSize = inputSquareSize(defaultSquareSize)
 
-defaultSquareSize = 73;
+if nargin == 0
+    defaultSquareSize = 73;
+end
 
-squareSize = input(['Size of a side of each square ([]='...
-    num2str(defaultSquareSize) 'mm) = ']);
+try
+    squareSize = input(['Camera ID number (' num2str(defaultSquareSize)...
+        ') = ']);
 
-if isempty(squareSize),
+    if isblank(squareSize),
+        squareSize = defaultSquareSize;
+    end
+catch
     squareSize = defaultSquareSize;
 end
 
