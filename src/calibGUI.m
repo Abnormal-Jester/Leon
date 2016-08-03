@@ -5,7 +5,7 @@ cell_list = {};
 %-------- Begin editable region -------------%
 
 if exist('calibGUIWindow', 'var'),
-   close (calibGUIWindow);
+    close (calibGUIWindow);
 end
 
 fig_number = 1;
@@ -21,10 +21,13 @@ clearwin;
 % 3 Manually detect the missing checkerboards
 % 4 Automatically use the data to generate save files and the ini file
 
-cell_list{1,1} = {'Enter Constants','manual.obtainData;'};
-cell_list{1,2} = {'Enter Camera Id','manual.inputCameraId;'};
-cell_list{1,3} = {'Enter Square Size','manual.inputSquareSize;'};
-cell_list{1,4} = {'Select Image Directories','manual.inputSquareSize;'};
+cell_list{1,1} = {'Enter Constants',...
+    'run=''manual.obtainData;'';commandAndReopen()'};
+cell_list{1,2} = {'Enter Camera Id',...
+    'run=''manual.checkAndInputCameraId;'';commandAndReopen()'};
+cell_list{1,3} = {'Enter Square Size',...
+    'run=''manual.checkAndInputSquareSize;'';commandAndReopen()'};
+cell_list{1,4} = {'Select Image Directories','manual.selectAndValidateAllDir;'};
 
 cell_list{2,1} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
 
