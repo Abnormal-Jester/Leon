@@ -8,8 +8,8 @@ if nargin == 0
 end
 
 try
-    squareSize = input(['Camera ID number (' num2str(defaultSquareSize)...
-        ') = ']);
+    squareSize = input(['Length of the side of each square in mm ('...
+    num2str(defaultSquareSize) ') = ']);
 
     if isblank(squareSize),
         squareSize = defaultSquareSize;
