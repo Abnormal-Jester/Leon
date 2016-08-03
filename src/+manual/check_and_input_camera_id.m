@@ -1,4 +1,4 @@
-% checkAndInputCameraId Prompts the user for the id of the camera.
+% check_and_input_camera_id Prompts the user for the id of the camera.
 %   prompts the user for the id of the camera, using the current value of
 %   cameraId as the default value.
 

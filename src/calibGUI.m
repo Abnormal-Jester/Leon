@@ -22,11 +22,11 @@ clearwin;
 % 4 Automatically use the data to generate save files and the ini file
 
 cell_list{1,1} = {'Enter Constants',...
-    'run=''manual.obtainData;'';commandAndReopen()'};
+    'run=''manual.obtain_data;'';command_and_reopen()'};
 cell_list{1,2} = {'Enter Camera Id',...
-    'run=''manual.checkAndInputCameraId;'';commandAndReopen()'};
+    'run=''manual.check_and_input_camera_id;'';command_and_reopen()'};
 cell_list{1,3} = {'Enter Square Size',...
-    'run=''manual.checkAndInputSquareSize;'';commandAndReopen()'};
+    'run=''manual.check_and_input_square_size;'';command_and_reopen()'};
 cell_list{1,4} = {'Select Image Directories','manual.selectAndValidateAllDir;'};
 
 cell_list{2,1} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
