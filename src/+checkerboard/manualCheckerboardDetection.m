@@ -21,7 +21,7 @@ for i = 1:nImagePairsUsed,
         manualPoints = clickCalibration(boardData.boardSize, colorData.getImage(i));
         colorData = colorData.addPoints(i, manualPoints);
 
-        manualPoints = clickCalibration(boardData.boardSize, colorData.getImage(i));
+        manualPoints = clickCalibration(boardData.boardSize, irData.getImage(i));
         irData = irData.addPoints(i, manualPoints);
 
     end

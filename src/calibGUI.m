@@ -23,14 +23,14 @@ clearwin;
 
 cell_list{1,1} = {'Enter Constants','manual.obtainData;'};
 cell_list{1,2} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
-cell_list{1,3} = {'Extract Corners',';'};
+cell_list{1,3} = {'Run stereo calibration','stereoCalib;'};
 
 % - Check errors
 % - Save current progress
 % - Clear
 % - Exit
 
-cell_list{2,1} = {'Run stereo calibration','stereoCalib;'};
+cell_list{2,1} = {'Save',';'};
 cell_list{2,2} = {'Clear','clearvars -except calibGUIWindow;'};
 cell_list{2,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGUIWindow); clearvars calibGUIWindow;'}; % {'Exit','calib_gui;'};
 
