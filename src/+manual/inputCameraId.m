@@ -1,5 +1,5 @@
 function cameraId = inputCameraId(defaultId)
-%inputCameraId Prompts the user for the id of the camera.
+% inputCameraId Prompts the user for the id of the camera.
 %   cameraId = inputCameraId
 %   cameraId = inputCameraId(defaultId)
 
