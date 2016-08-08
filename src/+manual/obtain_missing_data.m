@@ -13,7 +13,7 @@ if ~exist('squareSize', 'var')
 end
 
 if ~exist('colorDir', 'var') || ~exist('irDir', 'var')
-    obtainValidDirectories;
+    obtain_valid_directories;
 end
 
 fprintf('Missing data obtained.\n\n');
