@@ -1,4 +1,4 @@
-% DETECTALLCHECKERBOARD Try to automatically detect the checkerboards and
+% detect_all_checkerboard Try to automatically detect the checkerboards and
 % manually fill in the missing checkerboards
 
 import checkerboard.*;

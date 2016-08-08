@@ -32,7 +32,7 @@ cellList{1,4} = {'Select Image Directories',...
 cellList{1,5} = {'Enter Missing Constants',...
     'run=''manual.obtain_missing_data;'';command_and_reopen'};
 
-cellList{2,1} = {'Extract Checkerboards','checkerboard.detectAllCheckerboard;'};
+cellList{2,1} = {'Extract Checkerboards','checkerboard.detect_all_checkerboard;'};
 
 cellList{3,1} = {'Run stereo calibration','stereoCalib;'};
 
