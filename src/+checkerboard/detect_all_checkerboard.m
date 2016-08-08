@@ -3,19 +3,7 @@
 
 import checkerboard.*;
 
-fprintf('Checking for constants...\n');
-
-if ~constantsObtained
-    fprintf('Constants not found.\n\n');
-
-    obtain_missing_data;
-
-    if ~constantsObtained
-        error('Failed to obtain missing data.');
-    end
-end
-
-fprintf('Constants found.\n\n');
+manual.ensure_constants_obtained;
 
 
 fprintf('Running automatic checkerboard detection...\n');

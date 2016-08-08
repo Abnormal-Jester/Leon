@@ -6,5 +6,3 @@ if exist('squareSize', 'var')
 else
     [squareSize] = inputSquareSize;
 end
-
-check_constants_obtained;

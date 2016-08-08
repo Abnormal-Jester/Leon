@@ -16,6 +16,4 @@ if ~exist('colorDir', 'var') || ~exist('irDir', 'var')
     obtainValidDirectories;
 end
 
-check_constants_obtained;
-
 fprintf('Missing data obtained.\n\n');

@@ -7,5 +7,3 @@ catch exception
     fprintf(2, getReport(exception));
     clearvars colorDir irDir;
 end
-
-check_constants_obtained

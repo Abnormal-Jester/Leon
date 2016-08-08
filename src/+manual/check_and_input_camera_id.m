@@ -6,5 +6,3 @@ if exist('cameraId', 'var')
 else
     [cameraId] = inputCameraId;
 end
-
-check_constants_obtained;
