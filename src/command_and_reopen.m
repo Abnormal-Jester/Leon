@@ -6,6 +6,9 @@ try
     eval(run);
 
 catch exception
+    clearvars run;
+    reopen_gui;
+
     rethrow(exception);
 end
 
