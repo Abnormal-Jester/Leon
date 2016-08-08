@@ -18,4 +18,6 @@ fprintf('Running automatic checkerboard detection...\n');
 
 fprintf('Automatic checkerboard detection finished.\n\n');
 
-checkerboardProgress = 2;
+if checkerboardProgress < 2
+    checkerboardProgress = 2;
+end

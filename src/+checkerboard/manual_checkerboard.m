@@ -16,4 +16,6 @@ fprintf('Running manual checkerboard detection...\n');
 
 fprintf('Manual checkerboard detection finished.\n\n');
 
-checkerboardProgress = 3;
+if checkerboardProgress < 3
+    checkerboardProgress = 3;
+end

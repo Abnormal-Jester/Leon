@@ -11,4 +11,6 @@ irImageSet = imageSet(irDir);
 
 fprintf(1, 'Image sets created.\n\n');
 
-checkerboardProgress = 1;
+if checkerboardProgress < 1
+    checkerboardProgress = 1;
+end
