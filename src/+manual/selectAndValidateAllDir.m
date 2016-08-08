@@ -12,13 +12,13 @@ repeatSelection = true;
 while repeatSelection
 
     [colorDir, irDir] = selectAllDir;
-    [valid, warning, error] = validateAllDir(colorDir, irDir);
-    [repeatSelection] = promptUser(valid, warning, error);
+    [valid, warning, tempError] = validateAllDir(colorDir, irDir);
+    [repeatSelection] = promptUser(valid, warning, tempError);
 
 end
 
 if ~valid
-    throw exception;
+    error('Failed to obtain valid image set directories');
 end
 
 end

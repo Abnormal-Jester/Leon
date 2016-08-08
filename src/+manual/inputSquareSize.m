@@ -11,7 +11,7 @@ try
     squareSize = input(['Length of the side of each square in mm ('...
     num2str(defaultSquareSize) ') = ']);
 
-    if isblank(squareSize) || squareSize <= 0
+    if isempty(squareSize) || squareSize <= 0
         squareSize = defaultSquareSize;
     end
 catch

@@ -1,4 +1,4 @@
-function [valid, warning, error] = validateAllDir(colorDir, irDir)
+function [valid, warning, tempError] = validateAllDir(colorDir, irDir)
 % validateAllDir Checks if the directories can be used by a calibration program
 %   [valid, warning, error] = validateAllDir(colorDir, irDir)
 %   converts the directories into image sets and compares the number of images
@@ -8,7 +8,7 @@ function [valid, warning, error] = validateAllDir(colorDir, irDir)
 
 valid = false;
 warning = [];
-error = [];
+tempError = [];
 
 % These two image sets are lost and recreated again later, but they are not
 % output to keep the code cleaner.
@@ -19,11 +19,11 @@ nImage = colorImageSet.Count;
 % Several other control-flow structures, but this was ultimately the easiest to
 % read.
 if colorImageSet.Count ~= irImageSet.Count
-    error = 'The number of images in each set do not match.';
+    tempError = 'The number of images in each set do not match.';
 elseif nImage <= 10
-    error = 'More than 10 images are required.';
+    tempError = 'More than 10 images are required.';
 elseif strcmp(colorDir, irDir),
-    error = 'The directories cannot be the same.';
+    tempError = 'The directories cannot be the same.';
 else
 
     % The image sets meet the minimal requirements for the program to function.

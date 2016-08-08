@@ -6,11 +6,12 @@ import checkerboard.*;
 manual.ensure_constants_obtained;
 
 
-fprintf('Running automatic checkerboard detection...\n');
-
 % Create the image sets
 colorImageSet = imageSet(colorDir);
 irImageSet = imageSet(irDir);
+
+
+fprintf('Running automatic checkerboard detection...\n');
 
 [colorData, irData, boardData] = automaticCheckerboardDetection (...
     colorImageSet, irImageSet);
@@ -18,7 +19,7 @@ irImageSet = imageSet(irDir);
 fprintf('Automatic checkerboard detection finished.\n\n');
 
 
-fprintf('Manual checkerboard detection...\n\n');
+fprintf('Running manual checkerboard detection...\n');
 
 [colorData, irData, boardData] = manualCheckerboardDetection (colorData, irData, boardData);
 

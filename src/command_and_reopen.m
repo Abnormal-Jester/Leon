@@ -6,7 +6,9 @@ try
     eval(run);
 
 catch exception
-    fprintf(2, getReport(exception));
+    rethrow(exception);
 end
+
+clearvars run;
 
 reopen_gui;
