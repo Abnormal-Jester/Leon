@@ -27,12 +27,16 @@ cellList{1,2} = {'Enter Camera Id',...
     'run=''manual.check_and_input_camera_id;'';command_and_reopen;'};
 cellList{1,3} = {'Enter Square Size',...
     'run=''manual.check_and_input_square_size;'';command_and_reopen;'};
-cellList{1,4} = {'Select Image Directories',...
+cellList{1,4} = {'Select Image Dirs',...
     'manual.obtain_valid_directories;'};
 cellList{1,5} = {'Enter Missing Constants',...
     'run=''manual.obtain_missing_data;'';command_and_reopen;'};
 
+
 cellList{2,1} = {'Extract Checkerboards','checkerboard.detect_all_checkerboard;'};
+cellList{2,2} = {'Create Image Sets','checkerboard.create_all_image_set;'};
+cellList{2,3} = {'Automatic Detection','checkerboard.automatic_checkerboard;'};
+cellList{2,4} = {'Manual Detection','checkerboard.manual_checkerboard;'};
 
 cellList{3,1} = {'Run stereo calibration','stereoCalib;'};
 
