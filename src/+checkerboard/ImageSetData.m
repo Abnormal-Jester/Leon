@@ -1,9 +1,24 @@
+% The imagePoints property is a 3d array that contains points that correspond
+% to the checkerboards on image set with the same index.
+
+% obj = ImageSetData(imagePoints, imageSet) Construct an ImageSetData object
+
+% obj = ImageSetData(imagePoints, imageSet, imagePairsUsed) Construct an
+%   ImageSetData object, using the unused image pairs to indicate where the
+%   missing image points are located and filling the gaps with zero arrays
+
+% obj = addPoints(obj, pointIndex, pointSet) Overwrite the 2d point set at
+% the indicated index
+
+% image = getImage(obj, number) Obtain the image at the indicated index
+
 classdef ImageSetData
    properties
       imagePoints;
       imageSet;
    end
    methods
+
       function obj = ImageSetData(imagePoints, imageSet, imagePairsUsed)
          if nargin == 2,
             obj.imagePoints = imagePoints;
@@ -35,13 +50,14 @@ classdef ImageSetData
          end
       end
 
-      function obj = addPoints(obj, pointLocation, pointSet)
-         obj.imagePoints(:,:,pointLocation) = pointSet;
+      function obj = addPoints(obj, pointIndex, pointSet)
+         obj.imagePoints(:,:,pointIndex) = pointSet;
       end
 
       function image = getImage(obj, number)
          image = obj.imageSet.ImageLocation(number);
          image = image{1,1};
       end
+
    end
 end
