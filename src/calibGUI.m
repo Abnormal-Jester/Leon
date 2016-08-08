@@ -4,8 +4,8 @@ cellList = {};
 %-------- Begin editable region -------------%
 %-------- Begin editable region -------------%
 
-if exist('calibGUIWindow', 'var'),
-    close (calibGUIWindow);
+if exist('calibGuiWindow', 'var'),
+    close (calibGuiWindow);
 end
 
 figureNumber = 1;
@@ -14,7 +14,6 @@ figureTitle = 'Camera Calibration Toolbox - Custom Version 1.01';
 
 clear fc cc kc KK
 kc = zeros(5,1);
-clearwin;
 
 % 1 Enter the manual information
 % 2 Automatically detect the checkerboards
@@ -37,6 +36,7 @@ cellList{2,1} = {'Extract Checkerboards','checkerboard.detect_all_checkerboard;'
 cellList{2,2} = {'Create Image Sets','checkerboard.create_all_image_set;'};
 cellList{2,3} = {'Automatic Detection','checkerboard.automatic_checkerboard;'};
 cellList{2,4} = {'Manual Detection','checkerboard.manual_checkerboard;'};
+cellList{2,5} = {'View Checkerboards','checkerboard.view_checkerboard;'};
 
 cellList{3,1} = {'Run stereo calibration','stereoCalib;'};
 
@@ -46,16 +46,16 @@ cellList{3,1} = {'Run stereo calibration','stereoCalib;'};
 % - Exit
 
 cellList{4,1} = {'Save',';'};
-cellList{4,2} = {'Clear','clearvars -except calibGUIWindow;'};
-cellList{4,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGUIWindow); clearvars calibGUIWindow;'}; % {'Exit','calib_gui;'};
+cellList{4,2} = {'Clear','clearvars -except calibGuiWindow;'};
+cellList{4,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGuiWindow); clearvars calibGuiWindow;'}; % {'Exit','calib_gui;'};
 
 % - Change settings
 
 
-show_window(cellList,figureNumber,figureTitle,130,18,0,'clean',12);
+calibToolbox.show_window(cellList,figureNumber,figureTitle,130,18,0,'clean',12);
 clearvars figureNumber figureTitle kc cellList;
 
-assignin('base', 'calibGUIWindow', gcf)
+assignin('base', 'calibGuiWindow', gcf),
 
 %-------- End editable region -------------%
 %-------- End editable region -------------%

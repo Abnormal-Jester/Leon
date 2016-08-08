@@ -23,10 +23,12 @@ winty = 5;
 fprintf(1,'Using (wintx,winty)=(%d,%d) - Window size = %dx%d      (Note: To reset the window size, run script clearwin)\n',wintx,winty,2*wintx+1,2*winty+1);
 %fprintf(1,'Note: To reset the window size, clear wintx and winty and run ''Extract grid corners'' again\n');
 
+figure(2);
+imshow(rgb2gray(imread(imageName)));
 
 figure(2);
-image(I);
-colormap(map);
+% image(I);
+% colormap(map);
 set(2,'color',[1 1 1]);
 
 title('Click on the four extreme corners of the rectangular pattern (first corner = origin)... Image ');
