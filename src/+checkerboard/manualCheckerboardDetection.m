@@ -1,7 +1,7 @@
-function [colorData, irData, boardData] = manualCheckerboardDetection (varargin)
-% MANUALCHECKERBOARDDETECTION Manually detect the checkerboards
-%   [COLORDATA, IRDATA, BOARDDATA] = MANUALCHECKERBOARDDETECTION (COLORDATA, IRDATA, BOARDDATA)
-%   fills in the missing checkerboards by having the user select the four
+function [colorData, irData, boardData] = manualCheckerboardDetection(varargin)
+% manualCheckerboardDetection Manually detect the checkerboards
+%   [colorData, irData, boardData] = manualCheckerboardDetection(colorData, irData, boardData)
+%   fills in the all missing checkerboards by having the user select the four
 %   corners of the checkerboards.
 
 import checkerboard.*;
@@ -18,11 +18,8 @@ for i = 1:nImagePairsUsed,
 
     if ~boardData.imagePairsUsed(i),
 
-        manualPoints = clickCalibration(boardData.boardSize, colorData.getImage(i));
-        colorData = colorData.addPoints(i, manualPoints);
-
-        manualPoints = clickCalibration(boardData.boardSize, irData.getImage(i));
-        irData = irData.addPoints(i, manualPoints);
+        colorData = overwritePointArray(boardData, colorData, i);
+        irData = overwritePointArray(boardData, irData, i);
 
     end
 

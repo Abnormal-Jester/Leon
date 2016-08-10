@@ -5,20 +5,17 @@ cellList = {};
 %-------- Begin editable region -------------%
 
 if exist('calibGuiWindow', 'var'),
-    close (calibGuiWindow);
+    clearvars calibGuiWindow;
 end
 
 figureNumber = 1;
 
-figureTitle = 'Camera Calibration Toolbox - Custom Version 1.01';
+figureTitle = 'Camera Calibration Toolbox - Custom Version 1.02';
 
 clear fc cc kc KK
 kc = zeros(5,1);
 
-% 1 Enter the manual information
-% 2 Automatically detect the checkerboards
-% 3 Manually detect the missing checkerboards
-% 4 Automatically use the data to generate save files and the ini file
+% Enter all constants, individual constants, or all missing constants
 
 cellList{1,1} = {'Enter Constants',...
     'run=''manual.obtain_data;'';command_and_reopen;'};
@@ -31,12 +28,15 @@ cellList{1,4} = {'Select Image Dirs',...
 cellList{1,5} = {'Enter Missing Constants',...
     'run=''manual.obtain_missing_data;'';command_and_reopen;'};
 
+% Find all of the checkerboards, run an individual part of the process, or
+% open the view GUI
 
 cellList{2,1} = {'Extract Checkerboards','checkerboard.detect_all_checkerboard;'};
 cellList{2,2} = {'Create Image Sets','checkerboard.create_all_image_set;'};
-cellList{2,3} = {'Automatic Detection','checkerboard.automatic_checkerboard;'};
-cellList{2,4} = {'Manual Detection','checkerboard.manual_checkerboard;'};
-cellList{2,5} = {'View Checkerboards','checkerboard.view_checkerboard;'};
+cellList{2,3} = {'Automatic Detection','checkerboard.check_and_auto_detection;'};
+cellList{2,4} = {'Manual Detection','checkerboard.check_and_manual_detection;'};
+cellList{2,5} = {'View Checkerboards','viewer.viewerGui;'};
+
 
 cellList{3,1} = {'Run stereo calibration','stereoCalib;'};
 

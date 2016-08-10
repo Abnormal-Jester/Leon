@@ -16,6 +16,7 @@ elseif valid
     fprintf(1, warning);
     fprintf(1, '\n');
 
+    commandwindow;
     tempCheck = input('Use image set anyways? ([] = Yes, Number = No) ');
 
     if isempty(tempCheck)
@@ -28,6 +29,7 @@ else
     fprintf(2, error);
     fprintf(2, '\n');
 
+    commandwindow;
     tempCheck = input('Select different image sets? ([] = Yes, Number = No) ');
 
     if isempty(tempCheck)

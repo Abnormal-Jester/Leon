@@ -3,8 +3,6 @@
 
 import checkerboard.*;
 
-manual.ensure_constants_obtained;
-
 create_all_image_set;
-automatic_checkerboard;
-manual_checkerboard;
+check_and_auto_detection;
+check_and_manual_detection;

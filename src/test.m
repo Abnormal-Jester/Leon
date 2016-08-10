@@ -8,8 +8,8 @@ manual.obtain_missing_data;
 
 checkerboard.detect_all_checkerboard;
 checkerboard.create_all_image_set;
-checkerboard.automatic_checkerboard;
-checkerboard.manual_checkerboard;
+checkerboard.check_and_auto_detection;
+checkerboard.check_and_manual_detection;
 checkerboard.view_checkerboard;
 
 stereoCalib;

@@ -1,4 +1,5 @@
-%automatic_checkerboard Automatically detect the checkerboards with notices
+% check_and_auto_detection Check the checkerboard detection progress and
+% automatically detect the checkerboards in the image set pair
 
 
 import checkerboard.*;
