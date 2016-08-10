@@ -4,13 +4,18 @@
 
 import checkerboard.*;
 
-if checkerboardProgress < 1
-    create_all_image_set;
-
+if exist('checkerboardProgress','var')
     if checkerboardProgress < 1
-        error('checkerboard progress failure');
+        create_all_image_set;
     end
+else
+    create_all_image_set;
 end
+
+if checkerboardProgress < 1
+    error('checkerboard progress failure');
+end
+
 
 fprintf('Running automatic checkerboard detection...\n');
 

@@ -10,7 +10,7 @@ end
 
 figureNumber = 5;
 
-figureTitle = 'Camera Calibration Toolbox - Custom Version 1.01';
+figureTitle = 'Viewer';
 
 clear fc cc kc KK
 kc = zeros(5,1);
@@ -23,7 +23,7 @@ cellList{2,1} = {'Color', ';'};
 cellList{2,2} = {'IR', ';'};
 
 cellList{3,1} = {'Redo', ';'};
-cellList{3,2} = {'Exit', 'reopen_gui; close(viewerGuiWindow); clearvars viewerGuiWindow;'};
+cellList{3,2} = {'Exit', 'gui.reopen_gui; close(2); close(viewerGuiWindow); clearvars viewerGuiWindow;'};
 
 
 calibToolbox.show_window(cellList,figureNumber,figureTitle,130,18,0,'clean',12);

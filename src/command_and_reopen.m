@@ -7,11 +7,11 @@ try
 
 catch exception
     clearvars run;
-    reopen_gui;
+    gui.reopen_gui;
 
     rethrow(exception);
 end
 
 clearvars run;
 
-reopen_gui;
+gui.reopen_gui;

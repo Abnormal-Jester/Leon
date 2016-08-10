@@ -3,12 +3,16 @@
 
 import checkerboard.*;
 
-if checkerboardProgress < 2
-    check_and_auto_detection;
-
+if exist('checkerboardProgress','var')
     if checkerboardProgress < 2
-        error('checkerboard progress failure');
+        check_and_auto_detection;
     end
+else
+    check_and_auto_detection;
+end
+
+if checkerboardProgress < 2
+    error('checkerboard progress failure');
 end
 
 fprintf('Running manual checkerboard detection...\n');
@@ -21,6 +25,6 @@ if ishandle(2)
     close(2);
 end
 
-reopen_gui;
+gui.reopen_gui;
 
 checkerboardProgress = 3;
