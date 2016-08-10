@@ -10,6 +10,17 @@ checkerboard.detect_all_checkerboard;
 checkerboard.create_all_image_set;
 checkerboard.check_and_auto_detection;
 checkerboard.check_and_manual_detection;
-checkerboard.view_checkerboard;
+viewer.view_checkerboard;
 
-stereoCalib;
+
+stereo.stereo_calib;
+stereo.generate_core_point_array_pair;
+stereo.estimate_stereo_parameters;
+stereo.generate_ini;
+save_calib_data;
+
+error.reprojection;
+error.estimation;
+gui.calib_gui_simple;
+
+show_window;

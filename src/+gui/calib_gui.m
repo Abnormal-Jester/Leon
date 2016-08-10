@@ -48,7 +48,7 @@ cellList{3,1} = {'3 Calibration','stereo.stereo_calib;'};
 cellList{3,2} = {'Core Points','stereo.generate_core_point_array_pair;'};
 cellList{3,3} = {'Estimate Parameters','stereo.estimate_stereo_parameters;'};
 cellList{3,4} = {'Generate .ini','stereo.generate_ini;'};
-cellList{3,5} = {'Save Workspace','save_calib_data'};
+cellList{3,5} = {'Save Workspace','save_calib_data;'};
 
 % Check errors
 % Save current progress
@@ -56,8 +56,8 @@ cellList{3,5} = {'Save Workspace','save_calib_data'};
 % Clear
 % Exit
 
-cellList{4,1} = {'Reprojection Errors','error.reprojection'};
-cellList{4,2} = {'Estimation Errors','error.estimation'};
+cellList{4,1} = {'Reprojection Errors','error.reprojection;'};
+cellList{4,2} = {'Estimation Errors','error.estimation;'};
 
 cellList{4,3} = {'Simple View','gui.calib_gui_simple;'};
 cellList{4,4} = {'Clear','clearvars -except calibGuiWindow;'};
