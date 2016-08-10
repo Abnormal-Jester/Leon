@@ -1,13 +1,7 @@
-function calib(mode),
+function calib
+% calib Runs the simple calibration tool
+% Wrapper for the calibGui script
 
-% calib (mode)
-%   Runs the simple calibration tool.
-%   Any other value for mode will run the full calibration tool.
-
-if nargin < 1,
-    calibGUI;
-else
-    calibGUIFull;
-end
+calibGui;
 
 end
