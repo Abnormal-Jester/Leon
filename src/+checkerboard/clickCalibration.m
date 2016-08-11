@@ -22,15 +22,15 @@ ima = double(ima);
 
 
 imaSize = size(ima);
-xSize = ceil(imaSize(1)/100);
-ySize = ceil(imaSize(2)/100);
+xSize = ceil(imaSize(1)/110);
+ySize = ceil(imaSize(2)/110);
 
 % get window size
 if ~exist('windowInfoIn', 'var')
     windowInfo = [xSize ySize];
 else
     if isempty(windowInfoIn)
-        
+
         windowInfo = [xSize ySize];
     else
         windowInfo = windowInfoIn;
