@@ -1,3 +1,12 @@
+
+if exist('checkerboardProgress','var')
+    if checkerboardProgress < 5
+        stereo.estimate_stereo_parameters;
+    end
+else
+    stereo.estimate_stereo_parameters;
+end
+
 fprintf(1, 'Generating ini file...\n');
 
 fileId = fopen(['Cam_Paras_' num2str(cameraId) '.ini'],'w');
@@ -41,3 +50,5 @@ fclose(fileId);
 clearvars fileId;
 
 fprintf(1, 'ini file created.\n\n');
+
+checkerboardProgress = 6;

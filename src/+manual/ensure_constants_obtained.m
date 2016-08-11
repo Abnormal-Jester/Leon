@@ -12,6 +12,7 @@ if ~constantsObtained
 
     obtain_missing_data;
 
+    check_constants_obtained;
     if ~constantsObtained
         error('Failed to obtain missing data.');
     end

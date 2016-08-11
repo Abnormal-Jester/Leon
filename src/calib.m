@@ -3,12 +3,12 @@ function calib(i)
 % Wrapper for the calib_gui script
 
 if nargin == 0
-    gui.calib_gui;
+    gui.calib_gui_simple;
 else
     if i == 0
-        gui.calib_gui;
+        gui.calib_gui_simple;
     else
-        gui.calib_gui_simple
+        gui.calib_gui;
     end
 end
 

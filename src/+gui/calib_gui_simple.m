@@ -24,7 +24,8 @@ kc = zeros(5,1);
 cellList{1,1} = {'1 Constants',...
     'run=''manual.obtain_data;'';command_and_reopen;'};
 cellList{1,2} = {'2 Checkerboards','checkerboard.detect_all_checkerboard;'};
-cellList{1,3} = {'3 Calibration','stereo.stereo_calib;'};
+cellList{1,3} = {'3 Calibration',...
+    'run=''stereo.stereo_calib;'';command_and_reopen;'};
 
 cellList{2,1} = {'Missing Constants',...
 'run=''manual.obtain_missing_data;'';command_and_reopen;'};
@@ -38,6 +39,8 @@ cellList{3,2} = {'Estimation Errors','error.estimation'};
 cellList{4,1} = {'Robust View','gui.calib_gui;'};
 cellList{4,2} = {'Clear','clearvars -except calibGuiWindow;'};
 cellList{4,3} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGuiWindow); clearvars calibGuiWindow;'};
+
+% cellList{5,3} = {'Special Calib', 'optimize;'};
 
 
 calibToolbox.show_window(cellList,figureNumber,figureTitle,130,18,0,'clean',12);

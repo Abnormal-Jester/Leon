@@ -12,14 +12,17 @@ colorData = varargin{1};
 irData = varargin{2};
 boardData = varargin{3};
 
+colorWindowSize = [];
+irWindowSize = [];
+
 nImagePairsUsed = numel(boardData.imagePairsUsed);
 
 for i = 1:nImagePairsUsed,
 
     if ~boardData.imagePairsUsed(i),
 
-        colorData = overwritePointArray(boardData, colorData, i);
-        irData = overwritePointArray(boardData, irData, i);
+        [colorData, colorWindowSize] = overwritePointArray(boardData, colorData, i, colorWindowSize);
+        [irData, irWindowSize] = overwritePointArray(boardData, irData, i, irWindowSize);
 
     end
 

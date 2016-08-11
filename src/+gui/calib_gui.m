@@ -44,8 +44,10 @@ cellList{2,4} = {'Manual Detection','checkerboard.check_and_manual_detection;'};
 cellList{2,5} = {'View Checkerboards','viewer.view_checkerboard;'};
 
 
-cellList{3,1} = {'3 Calibration','stereo.stereo_calib;'};
-cellList{3,2} = {'Core Points','stereo.generate_core_point_array_pair;'};
+cellList{3,1} = {'3 Calibration',...
+    'run=''stereo.stereo_calib;'';command_and_reopen;'};
+cellList{3,2} = {'Core Points',...
+    'run=''stereo.generate_core_point_array_pair;'';command_and_reopen;'};
 cellList{3,3} = {'Estimate Parameters','stereo.estimate_stereo_parameters;'};
 cellList{3,4} = {'Generate .ini','stereo.generate_ini;'};
 cellList{3,5} = {'Save Workspace','save_calib_data;'};
@@ -63,7 +65,8 @@ cellList{4,3} = {'Simple View','gui.calib_gui_simple;'};
 cellList{4,4} = {'Clear','clearvars -except calibGuiWindow;'};
 cellList{4,5} = {'Exit','disp(''Bye. To run again, type calib.''); close(calibGuiWindow); clearvars calibGuiWindow;'};
 
-% - Change settings
+
+% cellList{5,5} = {'Special calib', 'optimize;'};
 
 
 calibToolbox.show_window(cellList,figureNumber,figureTitle,130,18,0,'clean',12);
