@@ -16,7 +16,7 @@ y = cornerPointArrayIn(:, 2);
 % calculate the distance from the origin
 % the closest point to the origin is the first point and furthest point is the
 % third point
-d = x.^2 + y.^2;
+d = (x-min(x)).^2 + (y-min(y)).^2;
 [~, dMinIndex] = min(d);
 cornerPointArray(1, :) = cornerPointArrayIn(dMinIndex, :);
 

@@ -24,17 +24,21 @@ end
 nImagePairsUsed = numel(boardData.imagePairsUsed);
 
 count = 1;
-manualImaNum = sum(boardData.imagePairsUsed(:)==0);
+manualImaNum = sum(boardData.imagePairsUsed(:)==0)*2;
 
 for i = 1:nImagePairsUsed,
 
     if ~boardData.imagePairsUsed(i),
 
-        fprintf(1, ['image ' num2str(i) ' (' num2str(count) ' of ' num2str(manualImaNum) ')\n']);
+        fprintf(1, ['Color Image ' num2str(i) ' (' num2str(count) ' of ' num2str(manualImaNum) ')\n\n']);
         count = count + 1;
         
         [colorData, colorWindowSize] = overwritePointArray(boardData, colorData, i, colorWindowSize);
         colorData.windowSize = colorWindowSize;
+        
+        fprintf(1, ['Depth Image ' num2str(i) ' (' num2str(count) ' of ' num2str(manualImaNum) ')\n\n']);
+        count = count + 1;
+        
         [irData, irWindowSize] = overwritePointArray(boardData, irData, i, irWindowSize);
         irData.windowSize = irWindowSize;
     end
