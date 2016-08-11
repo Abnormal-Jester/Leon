@@ -15,11 +15,15 @@ if checkerboardProgress < 2
     error('checkerboard progress failure');
 end
 
-fprintf('Running manual checkerboard detection...\n');
+fprintf(1, 'Running manual checkerboard detection...\n');
+
+manualImaNum = sum(boardData.imagePairsUsed(:)==0);
+fprintf(1, [num2str(manualImaNum) ' image sets to manually input.\n']);
+clearvars num;
 
 [colorData, irData, boardData] = manualCheckerboardDetection(colorData, irData, boardData);
 
-fprintf('Manual checkerboard detection finished.\n\n');
+fprintf(1, 'Manual checkerboard detection finished.\n\n');
 
 if ishandle(2)
     close(2);

@@ -16,6 +16,7 @@ classdef ImageSetData
    properties
       imagePoints;
       imageSet;
+      windowSize;
    end
    methods
 

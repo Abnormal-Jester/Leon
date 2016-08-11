@@ -22,8 +22,8 @@ ima = double(ima);
 
 
 imaSize = size(ima);
-xSize = ceil(imaSize(1)/100);
-ySize = ceil(imaSize(2)/100);
+xSize = imaSize(1)/100;
+ySize = imaSize(2)/100;
 
 % get window size
 if ~exist('windowInfoIn', 'var')
@@ -56,11 +56,7 @@ while ~strcmp(p, 'Yes')
             commandwindow;
             p = input('Input new corner detection window size for x ([] = no change): ');
             if ~isempty(p)
-                windowInfo(1) = p;
-                p = input('Input new corner detection window size for y ([] = no change): ');
-                if ~isempty(p)
-                    windowInfo(2) = p;
-                end
+                windowInfo = [p p];
             end
         catch
         end

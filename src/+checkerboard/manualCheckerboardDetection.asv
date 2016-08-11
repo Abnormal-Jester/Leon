@@ -30,8 +30,7 @@ for i = 1:nImagePairsUsed,
 
     if ~boardData.imagePairsUsed(i),
 
-        fprintf(1, ['image ' num2str(i) ' (' num2str(count) ' of ' num2str(manualImaNum) ')\n']);
-        count = count + 1;
+        fprintf(1, ['image ' num2str(i) ' (' num2str(count) ' of ' num2str(manualImaNum]);
         
         [colorData, colorWindowSize] = overwritePointArray(boardData, colorData, i, colorWindowSize);
         colorData.windowSize = colorWindowSize;
