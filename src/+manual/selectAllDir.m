@@ -21,15 +21,15 @@ if nargin == 0,
     startPath = '';
 end
 
-dirPrompt = 'Select the Color image directory.\n';
-fprintf(1, dirPrompt);
+dirPrompt = 'Select the Color image directory.';
+fprintf(1, [dirPrompt '\n']);
 colorDir = uigetdir(startPath, dirPrompt);
 
 % Sets the search for the ir directory in the parent of the color directory.
 parentDir = fileparts(colorDir);
 
-dirPrompt = 'Select the IR image directory.\n';
-fprintf(1, dirPrompt);
+dirPrompt = 'Select the IR image directory.';
+fprintf(1, [dirPrompt '\n']);
 irDir = uigetdir(parentDir, dirPrompt);
 
 end
