@@ -15,7 +15,7 @@ end
 
 figureNumber = 1;
 
-figureTitle = 'Camera Calibration Toolbox - Custom Version 1.03';
+figureTitle = 'Camera Calibration Toolbox - Custom Version 1.04';
 
 clear fc cc kc KK
 kc = zeros(5,1);
